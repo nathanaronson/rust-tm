@@ -3,12 +3,9 @@ use crate::State;
 use crate::Symbol;
 use std::collections::HashMap;
 
-pub type TransitionKey = (State, Symbol);
-pub type TransitionValue = (State, Symbol, Direction);
-
 #[derive(Clone, Debug)]
 pub struct TransitionTable {
-    rules: HashMap<TransitionKey, TransitionValue>,
+    rules: HashMap<(State, Symbol), (State, Symbol, Direction)>,
 }
 
 impl TransitionTable {
@@ -32,7 +29,7 @@ impl TransitionTable {
         );
     }
 
-    pub fn get_rule(&self, state: &State, symbol: &Symbol) -> Option<&TransitionValue> {
+    pub fn get_rule(&self, state: &State, symbol: &Symbol) -> Option<&(State, Symbol, Direction)> {
         self.rules.get(&(state.clone(), symbol.clone()))
     }
 }
