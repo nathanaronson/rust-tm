@@ -1,7 +1,6 @@
 use rust_tm::{Direction, Symbol, Tape, TransitionTable, TuringMachine};
 
-/// Example Use of Turing Machine Library
-/// Turing Machine for Palindrome Verification (class P)
+/// Example: Turing machine for {w | w is a palindrome}, which is in class P.
 fn main() {
     let mut transitions = TransitionTable::new();
 
